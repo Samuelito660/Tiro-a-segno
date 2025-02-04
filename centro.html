@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="static/js/p5.min.js"></script>
+    <script> 
+
+        let diametro = 400
+
+        function setup(){
+            createCanvas(600, 600)
+            background(220)
+            strokeWeight(1)
+            stroke("red")
+
+            fill("red")
+            circle(height/2, width/2, diametro)
+
+            fill("blue")
+            circle(height/2, width/2, diametro - 50)
+
+            fill("red")
+            circle(height/2, width/2, diametro - 100) 
+
+            fill("blue")
+            circle(height/2, width/2, diametro - 150)
+
+            fill("red")
+            circle(height/2, width/2, diametro - 200)
+
+            fill("blue")
+            circle(height/2, width/2, diametro - 250)
+
+            fill("red")
+            circle(height/2, width/2, diametro - 300)
+
+            fill("blue")
+            circle(height/2, width/2, diametro - 350)
+            
+        }
+
+         function draw(){
+            r = diametro / 2
+            distanzaX = mouseX - height/2
+            distanzaY = mouseY - width/2
+
+            if(distanzaX && distanzaY <= r){
+                console.log("hai colpito il bersaglio")
+            }
+            else{}
+
+         }
+    </script> 
+</body>
+</html>
