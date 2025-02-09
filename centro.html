@@ -44,14 +44,27 @@
         }
 
          function draw(){
-            r = diametro / 2
-            distanzaX = mouseX - height/2
-            distanzaY = mouseY - width/2
 
-            if(distanzaX && distanzaY <= r){
+            centroX = width/2
+            centroY = height/2
+           
+
+            r = diametro / 2
+            distanzaX = mouseX - width/2
+            distanzaY = mouseY - height/2
+
+
+            addEventListener("click",function(){
+
+                if(distanzaX && distanzaY <= centroX && centroY){
                 console.log("hai colpito il bersaglio")
             }
             else{}
+
+            });
+
+
+            
 
          }
     </script> 
