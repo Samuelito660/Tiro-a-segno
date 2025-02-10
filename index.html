@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+      <link rel="stylesheet" href="static/css/index.css">
+    
+    
 </head>
-<body>
+<body class="page">
     <script src="static/js/p5.min.js"></script>
     <script> 
 
         let diametro = 400
 
         function setup(){
-            createCanvas(600, 600)
-            background(220)
+            createCanvas(450, 450)
+            background("#2f4f4f")
+            document.getElementById('avviso').innerHTML = 'COLPISCI!!'
+        }
+ 
+
+        function draw(){
             strokeWeight(1)
-            stroke("red")
+            stroke(0)
 
             fill("red")
             circle(height/2, width/2, diametro)
@@ -40,33 +49,46 @@
 
             fill("blue")
             circle(height/2, width/2, diametro - 350)
-            
+               
         }
-
-         function draw(){
-
+        
+        function mouseClicked(){
             centroX = width/2
             centroY = height/2
-           
+            let click = null
 
             r = diametro / 2
+
             distanzaX = mouseX - width/2
             distanzaY = mouseY - height/2
 
+            let distanza = dist(mouseX,mouseY,centroX,centroY)
 
-            addEventListener("click",function(){
+            if(distanza <= r ){
+            document.getElementById('avviso').innerHTML = ("Hai colpito il bersaglio!")
+            click = {X : mouseX ,Y : mouseY}
 
-                if(distanzaX && distanzaY <= centroX && centroY){
-                console.log("hai colpito il bersaglio")
-            }
-            else{}
-
-            });
+                if (click){
+                    drawX(click.X,click.Y)
+                }
 
 
-            
+            }else{ document.getElementById('avviso').innerHTML = ("BIDONE") }
+        }
 
-         }
+        function drawX(X,Y) {
+        strokeWeight(3);  
+        stroke("white");
+
+        line(X - 10, Y - 10, X + 10, Y + 10);  
+        line(X - 10, Y + 10, X + 10, Y - 10); 
+        }
+
     </script> 
+        
+
+        <h1>PROVA A COLPIRE IL BERSAGLIO!</h1>
+        <p id="avviso">COLPISCI!!</p>
+
 </body>
 </html>
